@@ -8,7 +8,7 @@ import socket from "socket.io-client";
 import api from "../../services/api.services";
 import logo from "../../assets/logo.svg";
 
-import "./styles.css";
+import { Container, Header, Title, Upload, Files, File, FileInfo, FileTitle, TimeUpdated } from "./styles.js";
 
 const Box = props => {
   const [title, setTitle] = useState("");
@@ -45,40 +45,39 @@ const Box = props => {
   };
 
   return (
-    <div id="box-container">
-      <header>
+    <Container>
+      <Header>
         <img src={logo} alt="logo" />
-        <h1>{title}</h1>
-      </header>
+        <Title>{title}</Title>
+      </Header>
 
       <Dropzone onDropAccepted={handleUpload}>
         {({ getRootProps, getInputProps }) => (
-          <div className="upload" {...getRootProps()}>
+          <Upload {...getRootProps()}>
             <input {...getInputProps()} />
             <p>Arraste arquivos, ou clique aqui.</p>
-          </div>
+          </Upload>
         )}
       </Dropzone>
-      <ul>
+      <Files>
         {files &&
           files.map(file => (
-            <li key={file._id}>
-              <a
+            <File key={file._id}>
+              <FileInfo
                 href={file.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="fileInfo"
               >
                 <MdInsertDriveFile size={24} color="#A5CFFF" />
-                <strong>{file.title}</strong>
-              </a>
-              <span>
+                <FileTitle>{file.title}</FileTitle>
+              </FileInfo>
+              <TimeUpdated>
                 Há {distanceInWords(file.createdAt, new Date(), { locale: pt })}
-              </span>
-            </li>
+              </TimeUpdated>
+            </File>
           ))}
-      </ul>
-    </div>
+      </Files>
+    </Container>
   );
 };
 

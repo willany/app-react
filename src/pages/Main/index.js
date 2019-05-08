@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import api from "../../services/api.services";
 
-import "./styles.css";
+import { Container, Form, Input, Button } from './styles';
 
 const Main = props => {
   const [boxName, setBoxName] = useState("");
@@ -12,17 +12,17 @@ const Main = props => {
   };
 
   return (
-    <div id="main-container">
-      <form onSubmit={e => handleSubmit(e)}>
-        <input
+    <Container>
+      <Form onSubmit={e => handleSubmit(e)}>
+        <Input
           placeholder="Criar um box"
           type="text"
           value={boxName}
           onChange={e => setBoxName(e.target.value)}
         />
-        <button type="submit">Criar</button>
-      </form>
-    </div>
+        <Button type="submit">Criar</Button>
+      </Form>
+    </Container>
   );
 };
 
