@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import api from "../../services/api.services";
 
-import { Container, Form, Input, Button } from './styles';
+import { Container, Form, Input, Button } from "./styles";
 
 const Main = props => {
   const [boxName, setBoxName] = useState("");
@@ -21,6 +21,7 @@ const Main = props => {
           onChange={e => setBoxName(e.target.value)}
         />
         <Button type="submit">Criar</Button>
+        <a href="/boxes">Boxes</a>
       </Form>
     </Container>
   );

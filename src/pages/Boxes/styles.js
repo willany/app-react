@@ -18,22 +18,12 @@ export const Title = styled.h1`
   border-left: 1px solid #ddd;
 `;
 
-export const Upload = styled.div`
-  border-radius: 4px;
-  padding: 30px;
-  text-align: center;
-  border: 1px dashed #ddd;
-  color: #999;
-  margin-top: 50px;
-  cursor: pointer;
-`;
-
-export const Files = styled.ul`
+export const BoxList = styled.ul`
   margin: 30px 0;
   list-style: none;
 `;
 
-export const File = styled.li`
+export const Box = styled.li`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -45,13 +35,13 @@ export const File = styled.li`
   }
 `;
 
-export const FileInfo = styled.a`
+export const BoxInfo = styled.a`
   display: flex;
   align-items: center;
   text-decoration: none;
 `;
 
-export const FileTitle = styled.strong`
+export const BoxTitle = styled.strong`
   font-weight: normal;
   font-size: 14px;
   margin-left: 10px;
